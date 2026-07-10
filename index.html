@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Chia — Our Album</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Special+Elite&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<style>
+
+  /* ================= RESET & BASE ================= */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #F7F5F0;
+    --accent-red: #D9534F;
+    --accent-red-dark: #C0453F;
+    --text-charcoal: #333333;
+    --text-slate-blue: #4A5A6A;
+    --paper-white: #FFFDF9;
+    --dash-line: #cccccc;
+    --footer-coral: #E8A99A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-charcoal);
+    font-family: 'Special Elite', 'Courier New', monospace;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(217,83,79,0.03) 0%, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(217,83,79,0.04) 0%, transparent 45%);
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 70px 0 20px;
+    position: relative;
+  }
+
+  .dashed {
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 14px;
+  }
+
+  ::selection {
+    background: var(--accent-red);
+    color: #fff;
+  }
+
+  /* ================= HEADER ================= */
+
+  .header-section {
+    padding-top: 60px;
+    text-align: center;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    padding: 7px 16px;
+    transform: rotate(-2deg);
+    position: relative;
+  }
+
+  .stamp::before,
+  .stamp::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    width: 6px;
+    background-image: radial-gradient(circle, var(--bg) 2.6px, transparent 2.7px);
+    background-size: 6px 12px;
+  }
+  .stamp::before { left: -6px; }
+  .stamp::after { right: -6px; }
+
+  .main-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--accent-red);
+    font-size: clamp(3.6rem, 14vw, 6.5rem);
+    line-height: 1;
+    margin-top: 22px;
+    text-shadow: 2px 2px 0 rgba(217,83,79,0.08);
+  }
+
+  .subtitle-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  .subtitle {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--text-charcoal);
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 6px;
+    display: inline-block;
+  }
+
+  .meta-row {
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .meta-tag {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-charcoal);
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 6px;
+  }
+
+  .floating-star {
+    position: absolute;
+    right: -4px;
+    top: -18px;
+    font-size: 1.1rem;
+    animation: floaty 4s ease-in-out infinite;
+  }
+
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(12deg); }
+  }
+
+  /* ================= HEADINGS ================= */
+
+  .section-heading {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--accent-red);
+    font-size: clamp(2.2rem, 7vw, 3rem);
+    display: inline-block;
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+  }
+
+  .section-heading.inline-pair {
+    margin-bottom: 6px;
+  }
+
+  .heading-followup {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.95rem;
+    color: var(--text-charcoal);
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 16px;
+    margin-bottom: 26px;
+  }
+
+  .body-text {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.95rem;
+    color: var(--text-charcoal);
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+
+  /* ================= POLAROID ================= */
+
+  .polaroid {
+    background: var(--paper-white);
+    padding: 14px 14px 46px 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.14), 0 1px 3px rgba(0,0,0,0.08);
+    display: inline-block;
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: default;
+  }
+
+  .polaroid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: sepia(8%) saturate(92%);
+  }
+
+  .polaroid .caption {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    color: var(--text-charcoal);
+  }
+
+  .polaroid:hover {
+    transform: scale(1.06) rotate(0deg) !important;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.22), 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 5;
+  }
+
+  .polaroid:hover .tape {
+    opacity: 0.55;
+  }
+
+  .rotate-neg { transform: rotate(-3deg); }
+  .rotate-pos { transform: rotate(4deg); }
+
+  /* ---- Washi tape corners ---- */
+  .tape {
+    position: absolute;
+    width: 56px;
+    height: 22px;
+    background: rgba(217, 83, 79, 0.32);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+    z-index: 6;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .tape::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.25) 0px,
+      rgba(255,255,255,0.25) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  }
+
+  .tape.tl { top: -10px; left: -14px; transform: rotate(-38deg); }
+  .tape.tr { top: -10px; right: -14px; transform: rotate(38deg); }
+  .tape.tl-alt { top: -10px; left: 50%; margin-left: -28px; transform: rotate(-4deg); background: rgba(74, 90, 106, 0.28); }
+  .tape.br { bottom: -10px; right: -10px; transform: rotate(-42deg); background: rgba(74, 90, 106, 0.28); }
+
+  /* ---- Day counter badge ---- */
+  .day-counter-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 6px;
+  }
+
+  .day-counter {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1.5px dashed var(--accent-red);
+    padding: 14px 30px;
+    transform: rotate(-1.2deg);
+    background: rgba(217, 83, 79, 0.04);
+  }
+
+  .day-counter-number {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--accent-red);
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+
+  .day-counter-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-charcoal);
+    margin-top: 4px;
+  }
+
+  /* ---- Our song card ---- */
+  .song-card {
+    background: var(--paper-white);
+    border: 1px solid #e8e3d8;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    max-width: 420px;
+    margin: 34px auto 0;
+    padding: 20px 22px;
+    transform: rotate(0.8deg);
+  }
+
+  .song-card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .song-card-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .song-card-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--accent-red);
+  }
+
+  .song-card-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: var(--text-charcoal);
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+
+  .song-card-artist {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.78rem;
+    color: #7a7368;
+    margin-top: 2px;
+  }
+
+  .song-play-btn {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 0 var(--accent-red-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .song-play-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--accent-red-dark);
+  }
+
+  .song-play-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--accent-red-dark);
+  }
+
+  .song-play-icon {
+    font-size: 1.1rem;
+    margin-left: 3px;
+  }
+
+  .song-card.playing .song-play-icon {
+    margin-left: 0;
+  }
+
+  .song-embed-wrap {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, margin-top 0.5s ease;
+  }
+
+  .song-card.playing .song-embed-wrap {
+    max-height: 320px;
+    margin-top: 18px;
+  }
+
+  .song-embed-wrap iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    display: block;
+  }
+
+  .song-fallback-link {
+    display: block;
+    text-align: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.72rem;
+    color: #9a938a;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    margin-top: 10px;
+  }
+
+  .song-fallback-link:hover {
+    color: var(--accent-red);
+    border-bottom-color: var(--accent-red);
+  }
+
+  /* ---- Section 2: single polaroid ---- */
+  .single-photo-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 34px;
+    position: relative;
+  }
+
+  .single-photo-block .polaroid {
+    width: 260px;
+  }
+
+  .floating-heart {
+    position: absolute;
+    right: 8%;
+    top: 10px;
+    font-size: 1.6rem;
+    animation: floaty 3.4s ease-in-out infinite;
+    animation-delay: 0.4s;
+  }
+
+  /* ---- Photo pairs (side by side) ---- */
+  .photo-row {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .photo-row .polaroid {
+    width: 220px;
+  }
+
+  /* ================= LETTER SECTION ================= */
+
+  .letter-section {
+    padding: 80px 0 60px;
+  }
+
+  .letter-heading {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--text-slate-blue);
+    font-size: clamp(2rem, 6.5vw, 2.9rem);
+    text-align: center;
+    margin-bottom: 34px;
+    line-height: 1.25;
+  }
+
+  .letter-paper {
+    background: var(--paper-white);
+    border: 1px solid #e8e3d8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 46px 38px;
+    position: relative;
+    transform: rotate(-0.6deg);
+  }
+
+  .letter-paper::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 40px;
+    width: 60px;
+    height: 22px;
+    background: rgba(217,83,79,0.18);
+    transform: rotate(-4deg);
+  }
+
+  .letter-body {
+    font-family: 'Caveat', cursive;
+    font-weight: 500;
+    font-size: 1.55rem;
+    line-height: 1.65;
+    color: var(--text-charcoal);
+    text-align: left;
+  }
+
+  .letter-signoff {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: var(--accent-red);
+    margin-top: 26px;
+    text-align: right;
+  }
+
+  /* ================= FOREVER SECTION ================= */
+
+  .footer-text {
+    font-family: 'Special Elite', monospace;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 1px dashed var(--dash-line);
+    padding-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  /* ================= FINAL FOOTER ================= */
+
+  .final-footer {
+    background: var(--footer-coral);
+    width: 100%;
+    margin-top: 90px;
+    padding: 70px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 10px;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.35) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+  }
+
+  .sticker {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--paper-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: rotate(-6deg);
+  }
+
+  .final-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-style: italic;
+    font-size: clamp(2.4rem, 8vw, 3.4rem);
+    color: var(--text-charcoal);
+    font-weight: 700;
+  }
+
+  .final-subtext {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: rgba(153,45,40,0.75);
+    margin-top: 14px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    .photo-row { gap: 18px; }
+    .photo-row .polaroid { width: 44%; min-width: 140px; }
+    .letter-paper { padding: 32px 22px; }
+    .letter-body { font-size: 1.35rem; }
+    section { padding: 54px 0 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .floating-star, .floating-heart {
+      animation: none;
+    }
+  }
+
+  /* ================= INTRO GATE ================= */
+
+  #intro-gate {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(217,83,79,0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(217,83,79,0.06) 0%, transparent 45%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+  }
+
+  #intro-gate.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .intro-card {
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .intro-stamp {
+    display: inline-block;
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    padding: 6px 14px;
+    transform: rotate(-2deg);
+    margin-bottom: 22px;
+  }
+
+  .intro-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--accent-red);
+    font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+    line-height: 1.15;
+    text-shadow: 2px 2px 0 rgba(217,83,79,0.08);
+  }
+
+  .intro-sub {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--text-charcoal);
+    margin-top: 10px;
+  }
+
+  .intro-question {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    margin-top: 46px;
+    border-bottom: 1px dashed var(--dash-line);
+    display: inline-block;
+    padding-bottom: 12px;
+  }
+
+  .intro-buttons {
+    position: relative;
+    margin-top: 44px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .intro-btn {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 14px 30px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, font-size 0.2s ease, padding 0.2s ease;
+  }
+
+  #yes-btn {
+    background: var(--accent-red);
+    color: #fff;
+    box-shadow: 0 6px 0 var(--accent-red-dark);
+    position: relative;
+    z-index: 2;
+  }
+
+  #yes-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 var(--accent-red-dark);
+  }
+
+  #yes-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 var(--accent-red-dark);
+  }
+
+  #no-btn {
+    background: var(--paper-white);
+    color: var(--text-charcoal);
+    border: 1.5px dashed #b8b2a4;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: absolute;
+    z-index: 3;
+  }
+
+  #no-btn.roaming {
+    position: fixed;
+  }
+
+  .intro-nudge {
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: var(--accent-red-dark);
+    margin-top: 22px;
+    min-height: 1.6em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .intro-nudge.show {
+    opacity: 1;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- ============ INTRO GATE ============ -->
+  <div id="intro-gate">
+    <div class="intro-card">
+      <div class="intro-stamp">FOR CHIA</div>
+      <h1 class="intro-title">Happy 1st Month<br>Anniversary<br>to my precious</h1>
+      <p class="intro-sub">before you go in.. one important question</p>
+
+      <div class="intro-question">Am i ur favorite babes?</div>
+
+      <div class="intro-buttons">
+        <button id="yes-btn" class="intro-btn">Yes :)</button>
+        <button id="no-btn" class="intro-btn">No</button>
+      </div>
+
+      <p id="intro-nudge" class="intro-nudge"></p>
+    </div>
+  </div>
+
+  <!-- ============ MAIN SCRAPBOOK CONTENT ============ -->
+  <div id="main-content" style="opacity:0; transition: opacity 0.9s ease;">
+
+  <!-- ============ HEADER ============ -->
+  <header class="header-section wrap">
+    <div class="stamp">OUR ALBUM</div>
+    <h1 class="main-title">To Chia</h1>
+    <div class="subtitle-row">
+      <span class="subtitle">Curated by Dino</span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-tag">VOL. 01 / ORIGINAL</span>
+      <span class="floating-star">✦</span>
+    </div>
+  </header>
+
+  <!-- ============ WHERE IT BEGAN ============ -->
+  <section class="wrap">
+    <h2 class="section-heading dashed">Where It Began</h2>
+
+    <p class="body-text">We started dating on 11th of June, a day that quietly became the beginning of everything good.</p>
+    <p class="body-text">It's been exactly 1 month since then, and somehow every single day has felt worth keeping.</p>
+
+    <div class="day-counter-wrap">
+      <div class="day-counter">
+        <span class="day-counter-number" id="day-counter-number">30</span>
+        <span class="day-counter-label">days of us &amp; counting</span>
+      </div>
+    </div>
+
+    <div class="song-card" id="song-card">
+      <div class="song-card-inner">
+        <div class="song-card-info">
+          <span class="song-card-label">OUR SONG · MID JUNE</span>
+          <span class="song-card-title">Heat Waves</span>
+          <span class="song-card-artist">Glass Animals</span>
+        </div>
+        <button class="song-play-btn" id="song-play-btn" aria-label="Play our song">
+          <span class="song-play-icon">▶</span>
+        </button>
+      </div>
+      <div class="song-embed-wrap" id="song-embed-wrap"></div>
+    </div>
+
+    <div class="single-photo-block">
+      <div class="polaroid rotate-neg">
+        <span class="tape tl-alt"></span>
+        <img src="photo1.jpeg" alt="Memory one">
+        <span class="caption">Memory #1</span>
+      </div>
+      <span class="floating-heart">❤️</span>
+    </div>
+  </section>
+
+  <!-- ============ BEST TIMES TOGETHER ============ -->
+  <section class="wrap">
+    <h2 class="section-heading inline-pair">Best Times Together</h2>
+    <p class="heading-followup">That one time we couldn't stop smiling the whole day...</p>
+
+    <div class="photo-row">
+      <div class="polaroid rotate-neg">
+        <span class="tape tl"></span>
+        <img src="photo2.jpeg" alt="The way u looked at me">
+        <span class="caption">the way u looked at me..</span>
+      </div>
+      <div class="polaroid rotate-pos">
+        <span class="tape tr"></span>
+        <img src="photo3.jpeg" alt="We lovey dovey">
+        <span class="caption">we lovey dovey..</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE LETTER ============ -->
+  <section class="letter-section wrap">
+    <h2 class="letter-heading">To more and more months and years..</h2>
+
+    <div class="letter-paper">
+      <p class="letter-body">
+        Soooo First month yea? idk where to start baby it has been such a beautiful time i have been blessed with to stay by ur side, having laughs together, spending time together, being on calls, flickcalls and being able to meet you; Everything has been so incredibly precious to me babes, i hope we stay together always and keep growing together along with our feelings and we should spend more time flirting than dramaing lmao. Baby i can't even describe how grateful and blessed i am to have u as my girlfriend and idk how to even begin with bout the fact that i got the privilege to be ur boyfriend!!!!! I could not have asked for more baby and I hope u continue to trust me and fall for me even more and we stick together always:)) HAPPYYYY 1ST MONTH ANNIVERSARYYY TO MY BABYYY/CUTUUU/SWEETUUU/FAVVUU/EVERYTHING!!!!! I REALLY YYYYYYYYY~ LIKEEEYYYYYYYYYY~ YOUUUUUUUUUU~ ALOTTTTTTSSSS~ CHIAAAAAAA~ AND I AM SURE WE WILL MANAGE BABES SO DONT U WORRYY
+      </p>
+      <p class="letter-signoff">— Dino</p>
+    </div>
+  </section>
+
+  <!-- ============ FOREVER AND ALWAYS ============ -->
+  <section class="wrap">
+    <h2 class="section-heading dashed">Forever and Always:)</h2>
+
+    <div class="photo-row">
+      <div class="polaroid rotate-pos">
+        <span class="tape tl"></span>
+        <img src="photo4.jpeg" alt="Us always">
+        <span class="caption">Us Always</span>
+      </div>
+      <div class="polaroid rotate-neg">
+        <span class="tape br"></span>
+        <img src="photo5.jpeg" alt="U forever">
+        <span class="caption">U forever:)</span>
+      </div>
+    </div>
+
+    <p class="footer-text">To many more memories with u, my babyy:))</p>
+  </section>
+
+  <!-- ============ FINAL FOOTER ============ -->
+  <footer class="final-footer">
+    <div class="sticker">🐻</div>
+    <h2 class="final-title">Happy Anniversary!</h2>
+    <p class="final-subtext">Every second with you is a treasure.</p>
+  </footer>
+
+  </div><!-- /#main-content -->
+
+  <script>
+    (function () {
+      const gate = document.getElementById('intro-gate');
+      const yesBtn = document.getElementById('yes-btn');
+      const noBtn = document.getElementById('no-btn');
+      const nudge = document.getElementById('intro-nudge');
+      const mainContent = document.getElementById('main-content');
+      const buttonsWrap = document.querySelector('.intro-buttons');
+
+      const nudges = [
+        "nah try again babe",
+        "wrong answer, try again",
+        "hehe missed me",
+        "keep trying cutuu",
+        "u know the right answer",
+        "not that one silly",
+        "closeee.. not quite",
+        "i believe in u, try again"
+      ];
+
+      let dodgeCount = 0;
+      let yesScale = 1;
+      const MAX_SCALE = 2.2;
+
+      function growYes() {
+        yesScale = Math.min(MAX_SCALE, 1 + dodgeCount * 0.11);
+        yesBtn.style.transform = `scale(${yesScale})`;
+      }
+
+      function showNudge() {
+        const msg = nudges[Math.floor(Math.random() * nudges.length)];
+        nudge.textContent = msg;
+        nudge.classList.add('show');
+      }
+
+      function moveNoButton() {
+        // Switch to fixed positioning so it can roam the whole viewport
+        if (!noBtn.classList.contains('roaming')) {
+          const rect = noBtn.getBoundingClientRect();
+          noBtn.classList.add('roaming');
+          noBtn.style.left = rect.left + 'px';
+          noBtn.style.top = rect.top + 'px';
+        }
+
+        const btnRect = noBtn.getBoundingClientRect();
+        const maxX = window.innerWidth - btnRect.width - 16;
+        const maxY = window.innerHeight - btnRect.height - 16;
+
+        const newX = Math.max(16, Math.random() * maxX);
+        const newY = Math.max(16, Math.random() * maxY);
+
+        noBtn.style.left = newX + 'px';
+        noBtn.style.top = newY + 'px';
+      }
+
+      function dodge() {
+        dodgeCount++;
+        growYes();
+        showNudge();
+        moveNoButton();
+      }
+
+      // Dodge on hover (desktop) so it runs away before the click even lands
+      noBtn.addEventListener('mouseenter', dodge);
+      // Also dodge on click/touch as a fallback (mobile taps, fast cursors)
+      noBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        dodge();
+      });
+      noBtn.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        dodge();
+      }, { passive: false });
+
+      // ---- Confetti / heart burst on "Yes" ----
+      function burstHearts() {
+        const symbols = ['❤️', '💕', '✨', '💗', '🎀'];
+        const count = 22;
+        for (let i = 0; i < count; i++) {
+          const el = document.createElement('span');
+          el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+          el.style.position = 'fixed';
+          el.style.left = (Math.random() * 100) + 'vw';
+          el.style.top = '-40px';
+          el.style.fontSize = (1 + Math.random() * 1.3) + 'rem';
+          el.style.zIndex = '1100';
+          el.style.pointerEvents = 'none';
+          el.style.opacity = '0.95';
+          const duration = 1.6 + Math.random() * 1.4;
+          const drift = (Math.random() * 140 - 70);
+          const rotation = (Math.random() * 360 - 180);
+          el.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s ease`;
+          document.body.appendChild(el);
+
+          requestAnimationFrame(function () {
+            el.style.transform = `translate(${drift}px, ${window.innerHeight + 80}px) rotate(${rotation}deg)`;
+            el.style.opacity = '0';
+          });
+
+          setTimeout(function () {
+            el.remove();
+          }, duration * 1000 + 100);
+        }
+      }
+
+      yesBtn.addEventListener('click', function () {
+        burstHearts();
+        yesBtn.disabled = true;
+        noBtn.style.pointerEvents = 'none';
+        setTimeout(function () {
+          gate.classList.add('hidden');
+          document.body.style.overflow = '';
+          mainContent.style.opacity = '1';
+        }, 650);
+      });
+
+      // Lock scroll of background content while gate is up
+      document.body.style.overflow = 'hidden';
+
+      // ---- Live "days together" counter ----
+      const dayCounterEl = document.getElementById('day-counter-number');
+      if (dayCounterEl) {
+        const startDate = new Date(2026, 5, 11); // 11th June 2026 (month is 0-indexed)
+        const today = new Date();
+        const msPerDay = 1000 * 60 * 60 * 24;
+        const diffDays = Math.max(0, Math.floor((today - startDate) / msPerDay));
+        dayCounterEl.textContent = diffDays;
+      }
+
+      // ---- "Our song" player (click to load & play, click again to stop) ----
+      const songCard = document.getElementById('song-card');
+      const songPlayBtn = document.getElementById('song-play-btn');
+      const songEmbedWrap = document.getElementById('song-embed-wrap');
+      const SONG_VIDEO_ID = 'mRD0-GxqHVo'; // Glass Animals - Heat Waves (Official Video)
+      const SONG_WATCH_URL = 'https://www.youtube.com/watch?v=' + SONG_VIDEO_ID;
+
+      if (songCard && songPlayBtn && songEmbedWrap) {
+        let isPlaying = false;
+
+        songPlayBtn.addEventListener('click', function () {
+          isPlaying = !isPlaying;
+          songCard.classList.toggle('playing', isPlaying);
+
+          if (isPlaying) {
+            songEmbedWrap.innerHTML =
+              '<iframe src="https://www.youtube-nocookie.com/embed/' + SONG_VIDEO_ID +
+              '?autoplay=1&rel=0&modestbranding=1" title="Heat Waves - Glass Animals" ' +
+              'allow="accelerate-motion; autoplay; encrypted-media; picture-in-picture" ' +
+              'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
+              '<a class="song-fallback-link" href="' + SONG_WATCH_URL + '" target="_blank" rel="noopener noreferrer">' +
+              'Video not loading? Open on YouTube ↗</a>';
+            songPlayBtn.querySelector('.song-play-icon').textContent = '⏸';
+            songPlayBtn.setAttribute('aria-label', 'Pause our song');
+          } else {
+            songEmbedWrap.innerHTML = '';
+            songPlayBtn.querySelector('.song-play-icon').textContent = '▶';
+            songPlayBtn.setAttribute('aria-label', 'Play our song');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
