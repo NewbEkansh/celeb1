@@ -979,34 +979,55 @@
         dayCounterEl.textContent = diffDays;
       }
 
-      // ---- "Our song" player (click to load & play, click again to stop) ----
+      // ---- "Our song" player (click to load & play, auto-stops after 30s clip) ----
       const songCard = document.getElementById('song-card');
       const songPlayBtn = document.getElementById('song-play-btn');
       const songEmbedWrap = document.getElementById('song-embed-wrap');
       const SONG_VIDEO_ID = 'mRD0-GxqHVo'; // Glass Animals - Heat Waves (Official Video)
       const SONG_WATCH_URL = 'https://www.youtube.com/watch?v=' + SONG_VIDEO_ID;
+      const CLIP_START_SECONDS = 53;  // right around "late nights in the middle of June"
+      const CLIP_DURATION_SECONDS = 30;
+      const CLIP_END_SECONDS = CLIP_START_SECONDS + CLIP_DURATION_SECONDS;
 
       if (songCard && songPlayBtn && songEmbedWrap) {
         let isPlaying = false;
+        let autoStopTimer = null;
+
+        function stopSong() {
+          isPlaying = false;
+          songCard.classList.remove('playing');
+          songEmbedWrap.innerHTML = '';
+          songPlayBtn.querySelector('.song-play-icon').textContent = '▶';
+          songPlayBtn.setAttribute('aria-label', 'Play our song');
+          if (autoStopTimer) {
+            clearTimeout(autoStopTimer);
+            autoStopTimer = null;
+          }
+        }
+
+        function playSong() {
+          isPlaying = true;
+          songCard.classList.add('playing');
+          songEmbedWrap.innerHTML =
+            '<iframe src="https://www.youtube-nocookie.com/embed/' + SONG_VIDEO_ID +
+            '?autoplay=1&rel=0&modestbranding=1&start=' + CLIP_START_SECONDS +
+            '&end=' + CLIP_END_SECONDS + '" title="Heat Waves - Glass Animals" ' +
+            'allow="accelerate-motion; autoplay; encrypted-media; picture-in-picture" ' +
+            'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
+            '<a class="song-fallback-link" href="' + SONG_WATCH_URL + '" target="_blank" rel="noopener noreferrer">' +
+            'Video not loading? Open on YouTube ↗</a>';
+          songPlayBtn.querySelector('.song-play-icon').textContent = '⏸';
+          songPlayBtn.setAttribute('aria-label', 'Pause our song');
+
+          // Collapse the card back automatically once the 30s clip finishes
+          autoStopTimer = setTimeout(stopSong, CLIP_DURATION_SECONDS * 1000);
+        }
 
         songPlayBtn.addEventListener('click', function () {
-          isPlaying = !isPlaying;
-          songCard.classList.toggle('playing', isPlaying);
-
           if (isPlaying) {
-            songEmbedWrap.innerHTML =
-              '<iframe src="https://www.youtube-nocookie.com/embed/' + SONG_VIDEO_ID +
-              '?autoplay=1&rel=0&modestbranding=1" title="Heat Waves - Glass Animals" ' +
-              'allow="accelerate-motion; autoplay; encrypted-media; picture-in-picture" ' +
-              'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
-              '<a class="song-fallback-link" href="' + SONG_WATCH_URL + '" target="_blank" rel="noopener noreferrer">' +
-              'Video not loading? Open on YouTube ↗</a>';
-            songPlayBtn.querySelector('.song-play-icon').textContent = '⏸';
-            songPlayBtn.setAttribute('aria-label', 'Pause our song');
+            stopSong();
           } else {
-            songEmbedWrap.innerHTML = '';
-            songPlayBtn.querySelector('.song-play-icon').textContent = '▶';
-            songPlayBtn.setAttribute('aria-label', 'Play our song');
+            playSong();
           }
         });
       }
